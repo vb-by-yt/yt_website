@@ -589,9 +589,14 @@ body.light hr.separator {
 .home .home-details h1:before, .about .resume-box .icon, .contact ul.social li a:hover, body.light.contact ul.social li a:hover, .preloader .loader, .blog .page-link:hover, .blog .page-item.active .page-link, body.light.blog .page-link:hover, body.light.blog .page-item.active .page-link, .portfolio .grid li figure div, .header ul.icon-menu li.icon-box.active, .header ul.icon-menu li.icon-box:hover, body.light .header ul.icon-menu li.icon-box.active, body.light .header ul.icon-menu li.icon-box:hover, .btn, .header .icon-box h2, .home .color-block, .title-section hr, .portfolio .slideshow .carousel-indicators li.active, .button:before, .button-icon {
   background-color: #28a745;
 }
-.home h1, .about .box-stats h3, .title-section h1 span, #menu li.active a, body.light #menu li.active a, .blog .post-container:hover .post-content .entry-header h3 a, .blog .post-content .entry-header h3 a:hover, .contact .custom-span-contact i, .portfolio .slideshow figcaption h3, .portfolio .slideshow a, .portfolio .grid figure:hover figcaption, .blog-post .meta i {
+.home h1, .about .box-stats h3, .title-section h1 span, #menu li.active a, body.light #menu li.active a, .blog .post-container:hover .post-content .entry-header h3 a, .blog .post-content .entry-header h3 a:hover, .contact .custom-span-contact i, .portfolio .slideshow a, .blog-post .meta i {
   color: #5c0b77;
 }
+
+.portfolio .slideshow figcaption h3, .portfolio .grid figure:hover figcaption{
+  color: #fff;
+}
+
 .pie, .c100 .bar, .c100.p51 .fill, .c100.p52 .fill, .c100.p53 .fill, .c100.p54 .fill, .c100.p55 .fill, .c100.p56 .fill, .c100.p57 .fill, .c100.p58 .fill, .c100.p59 .fill, .c100.p60 .fill, .c100.p61 .fill, .c100.p62 .fill, .c100.p63 .fill, .c100.p64 .fill, .c100.p65 .fill, .c100.p66 .fill, .c100.p67 .fill, .c100.p68 .fill, .c100.p69 .fill, .c100.p70 .fill, .c100.p71 .fill, .c100.p72 .fill, .c100.p73 .fill, .c100.p74 .fill, .c100.p75 .fill, .c100.p76 .fill, .c100.p77 .fill, .c100.p78 .fill, .c100.p79 .fill, .c100.p80 .fill, .c100.p81 .fill, .c100.p82 .fill, .c100.p83 .fill, .c100.p84 .fill, .c100.p85 .fill, .c100.p86 .fill, .c100.p87 .fill, .c100.p88 .fill, .c100.p89 .fill, .c100.p90 .fill, .c100.p91 .fill, .c100.p92 .fill, .c100.p93 .fill, .c100.p94 .fill, .c100.p95 .fill, .c100.p96 .fill, .c100.p97 .fill, .c100.p98 .fill, .c100.p99 .fill, .c100.p100 .fill {
   border: 0.08em solid #28a745;
 }
@@ -978,10 +983,11 @@ body.light hr.separator {
 
 .portfolio .slideshow .videocontainer,
 .portfolio .slideshow .responsive-video {
-  max-width: 100%;
+  max-width: 57%;
   border-radius: 4px;
   display: block;
   object-fit: cover;
+  margin: auto;
 }
 
 .portfolio .slideshow .videocontainer {
@@ -989,11 +995,10 @@ body.light hr.separator {
   padding-bottom: 56.20%;
   padding-top: 0;
   height: 0;
-  max-width: 100%;
+  max-width: 70%;
   overflow: hidden;
-  width: 100%;
   display: block;
-  margin: 0;
+  margin: auto;
   border-radius: 4px;
 }
 
@@ -1658,9 +1663,14 @@ body.light hr.separator {
   }
 
   .main-img-mobile {
-    width: 230px;
-    height: 230px;
-  }
+    position: fixed;       /* Bild bleibt an einer festen Position */
+    top: 10%;              /* Bild ist 10% vom oberen Rand entfernt */
+    left: 10%;             /* Bild ist 10% vom linken Rand entfernt */
+    width: 150px;          /* Breite des Bildes */
+    height: auto;          /* Höhe bleibt im Seitenverhältnis */
+    z-index: 9999;         /* Damit das Bild immer oben bleibt */
+    object-fit: cover;     /* Bild füllt den Bereich aus, ohne das Seitenverhältnis zu verzerren */
+}
 
   .home .home-details h1 {
     font-size: 29px;
@@ -1822,3 +1832,84 @@ body.light hr.separator {
   color: #007bff; /* Hover-Farbe */
 }
 
+
+/* Footer Grundstil */
+.footer {
+  background-color: #111; /* Hintergrundfarbe */
+  color: white;
+  padding: 20px 0;
+}
+
+/* Desktop Version */
+@media (min-width: 768px) {
+  .footer .row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* Alle Spalten auf Desktop */
+  .footer .col-md-4 {
+    text-align: left;
+  }
+
+  .footer .col-md-4:nth-child(2) {
+    text-align: center;
+  }
+}
+
+/* Smartphone Version */
+@media (max-width: 767px) {
+  .footer .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /* Reihenfolge anpassen und Social Media an erste Stelle setzen */
+  .footer .col-md-4:nth-child(2) {
+    order: 1;
+    width: 100%; /* Social Media nimmt volle Breite ein */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .footer .col-md-4:nth-child(1),
+  .footer .col-md-4:nth-child(3) {
+    order: 2;
+    width: 50%; /* Die beiden anderen Spalten teilen sich die restliche Breite */
+    text-align: center;
+    margin-bottom: 10px;
+  }
+}
+
+
+/*/////////////////////////////////////////////////////////////// */
+
+
+@media (max-width: 767px) {
+  .social{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .social a {
+      font-size: 1.5rem; /* Smaller icons for tablets */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .social {
+      gap: 10px; /* Reduce gap for smaller screens */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  .social a {
+      font-size: 1.2rem; /* Smaller icons for smartphones */
+  }
+}
+
+
+/*//////////////////////////////////////////////////////////////////////*/
