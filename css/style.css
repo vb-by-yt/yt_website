@@ -1813,8 +1813,8 @@ body.light hr.separator {
   display: flex;
   justify-content: left; /* Zentriert die Icons */
   list-style: none; /* Entfernt die Aufzählungszeichen */
+  flex-wrap: wrap; /* Icons umbrechen, falls sie nicht in eine Zeile passen */
   padding: 0;
-  flex-wrap: wrap;
   margin-top: 5%;
 }
 
@@ -1900,10 +1900,8 @@ body.light hr.separator {
 
 @media (max-width: 480px) {
   .social {
-      gap: 10px; /* Reduce gap for smaller screens */
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    flex-direction: row; /* Icons in einer Zeile */
+    justify-content: space-around; /* Gleichmäßiger Abstand */
   }
 
   .social a {
