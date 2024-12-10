@@ -1889,9 +1889,8 @@ body.light hr.separator {
 
 @media (max-width: 767px) {
   .social{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row; /* Icons in einer Zeile */
+    justify-content: space-around; /* Gleichmäßiger Abstand */
   }
   .social a {
       font-size: 1.5rem; /* Smaller icons for tablets */
