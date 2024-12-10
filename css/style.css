@@ -1814,6 +1814,7 @@ body.light hr.separator {
   justify-content: left; /* Zentriert die Icons */
   list-style: none; /* Entfernt die Aufzählungszeichen */
   padding: 0;
+  flex-wrap: wrap;
   margin-top: 5%;
 }
 
